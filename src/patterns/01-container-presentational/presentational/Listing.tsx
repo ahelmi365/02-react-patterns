@@ -1,4 +1,3 @@
-import React from "react";
 import { IListing } from "./../container/ListingsContainer";
 interface Props {
   listing: IListing;
