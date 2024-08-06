@@ -2,7 +2,8 @@
 // import ListingsContainerComponent from "./patterns/01-container-presentational/container/ListingsContainer";
 
 import { useEffect, useRef, useState } from "react";
-
+import "get-icao-checker-wc/get-icao-checker-wc.js";
+import "./App.css";
 function App() {
   const [icaoImgSrc, setICAOImgSrc] = useState("");
   const icaoCheckerWCRef = useRef<HTMLGetIcaoCheckerWcElement>(null);
@@ -18,20 +19,12 @@ function App() {
     }
   }, [setICAOImgSrc]);
   return (
-    <div>
+    <div className="container">
       {/* <ListingsContainerComponent /> */}
-      <>
-        <div className="icao-modal-react container mt-4">
-          <get-icao-checker-wc
-            isICAOWC={true}
-            openModalElmId="open-icao-modal"
-            savedImageElmId="icao-result-image"
-            // getImgSrc={setICAOImgSrc}
-            ref={icaoCheckerWCRef}
-          ></get-icao-checker-wc>
 
-          {/* <icao-checker-wc data-is-icao-wc={false}></icao-checker-wc> */}
-          <h5>React App - ICAO WC</h5>
+      <div className="icao-container container mt-4">
+        <h2>React App - ICAO WC</h2>
+        <div className="btns">
           <button
             className="btn btn-primary"
             id="open-icao-modal"
@@ -47,17 +40,20 @@ function App() {
             type="button"
             onClick={() => console.log(icaoImgSrc)}
           >
-            log icao src{" "}
+            Log image Src
           </button>
-
-          <div
-            className="result-image card mt-4 p-4"
-            style={{ height: "315px" }}
-          >
-            <img id="icao-result-image" src="" alt="" width="200px" />
-          </div>
         </div>
-      </>
+
+        <div className="result-image card">
+          <img id="icao-result-image" src="" alt="" width="200px" />
+        </div>
+        <get-icao-checker-wc
+          isICAOWC
+          openModalElmId="open-icao-modal"
+          savedImageElmId="icao-result-image"
+          ref={icaoCheckerWCRef}
+        ></get-icao-checker-wc>
+      </div>
     </div>
   );
 }

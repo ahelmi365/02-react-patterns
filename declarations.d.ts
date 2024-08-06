@@ -42,7 +42,7 @@
 
 // v3
 // src/types/custom-elements.d.ts
-declare namespace JSX {
+declare namespace React.JSX {
   interface IntrinsicElements {
     "get-icao-checker-wc": React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
@@ -52,6 +52,7 @@ declare namespace JSX {
       openModalElmId?: string;
       savedImageElmId?: string;
       getImgSrc?: (src: string) => void;
+      language?: string;
     };
   }
 }
@@ -66,4 +67,5 @@ interface HTMLGetIcaoCheckerWcElement extends HTMLElement {
   openModalElmId: string;
   savedImageElmId: string;
   getImgSrc: (src: string) => void;
+  language?: string;
 }
